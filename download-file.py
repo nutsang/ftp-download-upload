@@ -10,7 +10,7 @@ def download_file(file_name):
     else:
         try:
             ftp.retrbinary(f'RETR {file_name}', local_file.write, 1024)
-        except Exception as a:
+        except:
             print(f'ไม่มีไฟล์ {file_name} ในเซิร์ฟเวอร์')
         else:
             ftp.quit()
@@ -36,7 +36,6 @@ else:
             print('กำลังเชื่อมต่อไปยังเซิร์ฟเวอร์ ...')
             ftp = FTP(host)
         except:
-            ftp.quit()
             print('การเชื่อมต่อไปยังเซิร์ฟเวอร์ล้มเหลว')
         else:
             print('การเชื่อมต่อไปยังเซิร์ฟเวอร์สำเร็จ')
